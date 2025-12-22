@@ -22,7 +22,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    "baseUrl": "/homomorphism-convergence/",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
