@@ -22,7 +22,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.6
         with:
-          sparse-checkout: "web"
+          sparse-checkout:  |
+            web
           sparse-checkout-cone-mode: false
 
       - name: Move files in the "web" folder to the root
