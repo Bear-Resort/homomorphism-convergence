@@ -2,8 +2,8 @@ import { Button } from "./components/ui/button";
 
 function Return() {
     const backToResort = () => {
-        window.location.href = 'https://bear-resort.github.io/';
-    }
+        window.location.href = "https://bear-resort.github.io/";
+    };
 
     return (
         <Button
@@ -16,8 +16,8 @@ function Return() {
                 className="w-6 h-6 object-contain"
             />
             Back to Bear Resort
-            </Button>
-    )
+        </Button>
+    );
 }
 
 export default Return;
