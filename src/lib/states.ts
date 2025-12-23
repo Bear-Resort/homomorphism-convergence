@@ -11,7 +11,6 @@ $theme.subscribe((value) => {
         path: "/",
     });
 
-    // Apply theme to DOM
     if (value === "night") {
         document.documentElement.classList.add("night");
     } else {
@@ -19,16 +18,31 @@ $theme.subscribe((value) => {
     }
 });
 
-// Helper functions
+let lastTheme = Cookies.get("theme");
+
+const checkCookieChange = () => {
+    const currentTheme = Cookies.get("theme");
+    
+    if (currentTheme && currentTheme !== lastTheme) {
+        lastTheme = currentTheme;
+        $theme.set(currentTheme);
+    }
+};
+
+setInterval(checkCookieChange, 500);
+
+if (typeof window !== "undefined") {
+    window.addEventListener("focus", checkCookieChange);
+    
+    window.addEventListener("storage", (e) => {
+        if (e.key === "theme-sync") {
+            checkCookieChange();
+        }
+    });
+}
+
 export const toggleTheme = () => {
     const current = $theme.get();
     $theme.set(current === "night" ? "day" : "night");
-};
-
-export const setTheme = (theme: string) => {
-    $theme.set(theme);
-};
-
-export const isDark = () => {
-    return $theme.get() === "night";
+    localStorage.setItem('refresh', Date.now().toString());
 };
