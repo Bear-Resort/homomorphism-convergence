@@ -9,6 +9,8 @@ import {
 import { useEffect, useState } from "react";
 import { $theme, toggleTheme } from "./lib/states";
 import { useStore } from "@nanostores/react";
+import { openPage } from "@nanostores/router";
+import { $router } from "./lib/router";
 
 function Menu() {
     const [loggedInUser, setLoggedInUser] = useState(
@@ -37,6 +39,14 @@ function Menu() {
             <DropdownMenu>
                 <DropdownMenuTrigger>Menu</DropdownMenuTrigger>
                 <DropdownMenuContent>
+                    <DropdownMenuItem
+                        onClick={() => {
+                            openPage($router, "home");
+                        }}
+                    >
+                        Home
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
                     <DropdownMenuLabel>Profile</DropdownMenuLabel>
                     <DropdownMenuItem onClick={promptToUserCenter}>
                         {" "}
@@ -44,10 +54,28 @@ function Menu() {
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuLabel>Training</DropdownMenuLabel>
-                    <DropdownMenuItem>Homorphism</DropdownMenuItem>
-                    <DropdownMenuItem>Convergence</DropdownMenuItem>
+                    <DropdownMenuItem
+                        onClick={() => {
+                            openPage($router, "algebra");
+                        }}
+                    >
+                        Homorphism
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                        onClick={() => {
+                            openPage($router, "analysis");
+                        }}
+                    >
+                        Convergence
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>Characters</DropdownMenuItem>
+                    <DropdownMenuItem
+                        onClick={() => {
+                            openPage($router, "characters");
+                        }}
+                    >
+                        Characters
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuLabel>Setting</DropdownMenuLabel>
                     <DropdownMenuItem

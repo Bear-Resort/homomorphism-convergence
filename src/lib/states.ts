@@ -22,7 +22,7 @@ let lastTheme = Cookies.get("theme");
 
 const checkCookieChange = () => {
     const currentTheme = Cookies.get("theme");
-    
+
     if (currentTheme && currentTheme !== lastTheme) {
         lastTheme = currentTheme;
         $theme.set(currentTheme);
@@ -33,7 +33,7 @@ setInterval(checkCookieChange, 500);
 
 if (typeof window !== "undefined") {
     window.addEventListener("focus", checkCookieChange);
-    
+
     window.addEventListener("storage", (e) => {
         if (e.key === "theme-sync") {
             checkCookieChange();
@@ -44,5 +44,5 @@ if (typeof window !== "undefined") {
 export const toggleTheme = () => {
     const current = $theme.get();
     $theme.set(current === "night" ? "day" : "night");
-    localStorage.setItem('refresh', Date.now().toString());
+    localStorage.setItem("refresh", Date.now().toString());
 };
