@@ -30,8 +30,7 @@ function Chars() {
                                         name={char.name}
                                         description={char.title}
                                         img_url={
-                                            char.img ??
-                                            "https://nullptr-bot.github.io/Homomorphism-Convergence/images/no.JPG"
+                                            `https://nullptr-bot.github.io/Homomorphism-Convergence/${char.img ?? "images/no.JPG"}`
                                         }
                                     />
                                 </div>

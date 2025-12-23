@@ -14,7 +14,7 @@ function TheCard(props: TheCardProps) {
             <CardContent
                 className="flex h-full items-center bg-center bg-cover justify-center overflow-hidden p-6 rounded-xl"
                 style={{
-                    backgroundImage: `url(/homomorphism-convergence/${img_url})`,
+                    backgroundImage: `url(${img_url})`,
                 }}
             >
                 <div
